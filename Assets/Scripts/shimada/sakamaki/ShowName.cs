@@ -2,23 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using Photon.Realtime;
 public class ShowName : MonoBehaviour
 {
-    [SerializeField] Text _nameText = null;
-    [SerializeField] InputField _inputField = null;
-    [SerializeField] Transform _playertransform;
-
-    Vector3 _namePostion;
+    /// <summary>InputFieldから受け取ったTextを表示するText</summary>
+    [SerializeField] private Text _nameText = null;
+    /// <summary>プレイヤーの入力を受け付けるUI</summary>
+    [SerializeField] private InputField _inputField = null;
+    /// <summary>Player(操作する人)のGameObject</summary>
+    [SerializeField] private PlayerController2D _player = null;
+    /// <summary>割り振られた番号</summary>
+    [SerializeField] private int _myActorNumber = 0;
+  
+    private NetworkGameManager _networkGM;
 
     void Start()
     {
         _inputField = _inputField.GetComponent<InputField>();
         _nameText = _inputField.GetComponent<Text>();
-        _namePostion = _nameText.transform.position;
-
     }
     void Update()
     {
-        _namePostion = new Vector3(_playertransform.position.x, _playertransform.position.y + 0.5f, _playertransform.position.z);
+        if (_myActorNumber == 0)
+        {
+            _myActorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
+            Debug.Log($"{_myActorNumber}");
+        }
+    }
+
+    /// <summary>
+    /// Textの入力が終わりEnterが押されたときに呼ばれる
+    /// </summary>
+    public void OnEndEdit()
+    {
+        Debug.Log("OnEndEditが呼ばれた");
+        _nameText.text = _inputField.text;
     }
 }
