@@ -133,10 +133,6 @@ public class TagGameManager : MonoBehaviour
             }
             else
             {
-                if (m_loser)
-                {
-                    m_loser.text = text.gameObject.GetComponentInParent<DisplayName>().MyName;
-                }
                 m_winners.Add(text.gameObject.GetComponentInParent<DisplayName>().MyName);
             }
         }
@@ -144,7 +140,7 @@ public class TagGameManager : MonoBehaviour
         {
             foreach (var item in m_winners)
             {
-                if (m_winner) return;
+                if (!m_winner) return;
                 m_winner.text += item + "\n";
             }
         }
