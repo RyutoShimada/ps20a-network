@@ -40,6 +40,7 @@ public class PlayerController2D : MonoBehaviour
     /// <summary>補正期間を計るためのタイマー</summary>
     float m_powerTimer;
 
+    bool CanMove = false;
     ItemManager itemManager;
 
     void Start()
@@ -58,6 +59,7 @@ public class PlayerController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!m_view || !m_view.IsMine || !CanMove) return;
         Move();
         Rotate();
     }
@@ -156,6 +158,14 @@ public class PlayerController2D : MonoBehaviour
         {
             m_rb.AddForce(dir * m_movePower * m_correctSpeed, ForceMode2D.Force);
         }
+    }
+
+    /// <summary>
+    /// ダッシュする
+    /// </summary>
+    public void SetCanMove(bool value)
+    {
+        CanMove = value;
     }
 
     /// <summary>
