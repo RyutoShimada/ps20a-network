@@ -5,25 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Loader.unity
-    guid: a0410b9aa640fd74b9f610f4ad092eb6
-  - enabled: 0
-    path: Assets/sakamaki/Sakamaki.unity
-    guid: d802cbd8f783f624aabb00bf624c4d06
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/RocketTagGameScene/MasterTitleScene.unity
+    guid: a9a7432979eeb9e4a8ae028c13b5e09e
   - enabled: 1
     path: Assets/Scenes/RocketTagGameScene/MasterGameScene.unity
     guid: 4a4667ff39f8a5a448be3479001f29f4
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/KasaiTest.unity
-    guid: b5f7db736e49eba449743039ed8aadef
-  - enabled: 0
-    path: Assets/Scenes/Test.unity
-    guid: 33980bef15c84c3489da0aab9e6de50f
   m_configObjects: {}

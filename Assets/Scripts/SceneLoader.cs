@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SceneLoader : MonoBehaviour
 {
+    public static SceneLoader Instance = new SceneLoader();
+
     /// <summary>
     /// 名前を指定したシーンに切り替える
     /// </summary>

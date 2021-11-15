@@ -9,6 +9,6 @@ public class RotateBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.forward, _rotateSpeed);
+        transform.Rotate(Vector3.forward, _rotateSpeed * Time.deltaTime);
     }
 }

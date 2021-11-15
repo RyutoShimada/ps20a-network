@@ -267,4 +267,11 @@ public class NetworkGameManager : MonoBehaviourPunCallbacks // Photon Realtime ç
     {
         Debug.Log("OnCustomAuthenticationFailed");
     }
+
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.Disconnect();
+        SceneLoader.Instance.LoadScene("MasterTitleScene");
+    }
 }
